@@ -1,5 +1,6 @@
 lb_codes.txt
-
+user_info.json
+map.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
