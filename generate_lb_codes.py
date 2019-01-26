@@ -14,8 +14,6 @@ for x in range(0,N):
     if s not in code_list:
         code_list[x] = s
 
-print(len(code_list))
-
 with open('lb_codes.txt', 'w') as f:
     for x in code_list:
         f.write(x + '\n')
