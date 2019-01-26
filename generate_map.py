@@ -24,7 +24,9 @@ for y in range(height):
             # + 0.25 * noise(15.00 * nx, 15.00 * ny) 
         #value[y][x] = math.pow(e, 0.38)
 
-
+# F is flag
+# B is base 
+# rest of them do not matter
 def get_terrain(height):
     if height == -3:
         return 'F'
@@ -38,9 +40,14 @@ def get_terrain(height):
         return '@'
     else:
         return 'Y'
-        
-def fill_square(x,y):
-    return None
+
+def fill_flag(x, y, dim, arr):
+    rng = range( round(-dim/2), round(dim/2) + 1) 
+    print(rng)
+    for i in rng:
+        for j in rng:
+            arr[x + i][y + j] = -2
+    
 
 def euclidean(x1, y1, x2, y2):
     return math.sqrt(abs(x1 - x2)**2 + abs(y1 - y2)**2)
@@ -52,13 +59,14 @@ def generate_bases():
     y1 = random.randint(0,99)
     y2 = random.randint(0,99)
 
-    while euclidean(x1, y1, x2, y2) < 80:
-        x1 = random.randint(0,99)
-        x2 = random.randint(0,99)
-        y1 = random.randint(0,99)
-        y2 = random.randint(0,99)
+    while euclidean(x1, y1, x2, y2) < 90:
+        x1 = random.randint(5,93)
+        x2 = random.randint(5,93)
+        y1 = random.randint(5,93)
+        y2 = random.randint(5,93)
     
-    print(x1, y1, x2, y2)
+    fill_flag(x1, y1, 5, value)
+    fill_flag(x2, y2, 5, value)
     value[x1][y1] = -3
     value[x2][y2] = -3
 
